@@ -1,0 +1,22 @@
+mat-drawer-container {
+  height: 100%;
+}
+
+mat-drawer {
+  width: 200px;
+}
+
+h3 {
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.selected {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.project-content {
+
+  margin: 2rem;
+}

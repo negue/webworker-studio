@@ -1,0 +1,49 @@
+
+<h3>Worker Code:</h3>
+
+<app-codemirror [value]="currentCode"
+                (changed)="updatedCode($event)"
+>
+
+</app-codemirror>
+
+
+<h3>Actions</h3>
+
+<button (click)="createWorker()"
+        [disabled]="webworkerCreated"
+        mat-raised-button
+>
+  Create Worker
+</button>
+
+
+<button (click)="stopWorker()"
+        [disabled]="!webworkerCreated"
+        mat-raised-button
+>
+  Stop Worker
+</button>
+
+<h4>Send Message</h4>
+
+<mat-form-field class="example-full-width">
+  <mat-label>Message to the Worker</mat-label>
+
+  <input type="text" autocomplete="off"
+         matInput
+         [disabled]="!webworkerCreated"
+         #postMessageInput>
+</mat-form-field>
+
+<button (click)="postMessage(postMessageInput.value)"
+        [disabled]="!webworkerCreated"
+        mat-raised-button >
+  Send
+</button>
+
+<h3> Responses: </h3>
+<button mat-raised-button (click)="clearResponses()">clear</button>
+<pre>
+  {{ responses | json }}
+</pre>
